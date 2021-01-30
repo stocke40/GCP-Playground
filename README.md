@@ -1,2 +1,2 @@
 # GCP-Playground
-Playground to experiment with Google Cloud Functions
+Playground to experiment with Google Cloud Functions.
