@@ -19,3 +19,5 @@ Hello PLTR!
 grego@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
 $
 ```
+
+My notes going through this preocess are in [this Google Doc](https://docs.google.com/document/d/1Dhes1b-NZqqArBgByggriFyyUjTLHyeNwu2VEglYkFc/edit#heading=h.fb1psvpelt68).
