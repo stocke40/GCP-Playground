@@ -2,7 +2,7 @@ from flask import escape
 import requests
 from bs4 import BeautifulSoup
 
-def CME-quote-ES(request):
+def CME_quote_ES(request):
     """HTTP Cloud Function.
     Args:
         request (flask.Request): The request object.
