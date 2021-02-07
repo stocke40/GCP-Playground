@@ -22,9 +22,9 @@ def CME_quote_ES(request):
     else:
         name = 'World'
 
-    CME-ES-url = 'https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500_quotes_globex.html'
+    CME_ES_url = 'https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500_quotes_globex.html'
 
-    cr = requests.get(CME-ES-url,timeout=2.5)
+    cr = requests.get(CME_ES_url,timeout=2.5)
     cr_html = r.text
     csoup = BeautifulSoup(cr_html, 'html.parser')
 

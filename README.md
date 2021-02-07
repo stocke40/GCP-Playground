@@ -31,7 +31,7 @@ Still working on the below gcloud CLI deploy
 '''Shell
 grego@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
 $ gcloud functions deploy CME_quote_ES \
-  --source https://source.cloud.google.com/greg-play-gcp-project/github_stocke40_gcp-playground/+/InitialCommit:/functions/helloworld/CME-quote-ES.py \
+  --source https://source.developers.google.com/projects/greg-play-gcp-project/repos/github_stocke40_gcp-playground/moveable-aliases/InitialCommit/paths/functions/helloworld/CME_quote_ES.py \
   --region=us-central1 \
   --trigger-http \
   --runtime python38 \
