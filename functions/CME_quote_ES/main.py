@@ -30,7 +30,7 @@ def CME_quote_ES(request):
     CME_ES_url = 'https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500_quotes_globex.html'
 
     cr = requests.get(CME_ES_url,timeout=2.5)
-    cr_html = r.text
+    cr_html = cr.text
     csoup = BeautifulSoup(cr_html, 'html.parser')
 
     # Assuming top table entry is the current futures contract.  
