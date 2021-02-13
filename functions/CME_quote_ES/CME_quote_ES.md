@@ -13,7 +13,7 @@ curl -X POST https://us-central1-greg-play-gcp-project.cloudfunctions.net/CME_qu
 ```
 
 ```Shell
-grego@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
+stocke@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
 $ curl -X POST https://us-central1-greg-play-gcp-project.cloudfunctions.net/CME_quote_ES -H "Content-Type:application/json" -d '{"name":"PLTR"}'
 Hello PLTR!
 grego@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
@@ -24,12 +24,12 @@ My notes going through this process are in [this Google Doc](https://docs.google
 
 ## Deploying from (Mirrored) Google Cloud Source Repository
 
-https://us-central1-greg-play-gcp-project.cloudfunctions.net/CME_quote_ES
+Once changes are committed to the local repository, pushed to the remote repositiory on github, then mirrored to the connected Google Cloud Source Repository, they must be deployed before they can actually run as a google cloud function.
 
-Still working on the below gcloud CLI deploy
+The below command deploys changes committed and pushed to the InitialCommit branch of the github_stocke40_gcp-playground google cloud source repository to the CME_quote_ES google cloud function:  
 
-'''Shell
-grego@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
+```Shell
+stocke@MSI MINGW64 ~/gitrepos/GCP-Playground (InitialCommit)
 $ gcloud functions deploy CME_quote_ES \
   --source https://source.developers.google.com/projects/greg-play-gcp-project/repos/github_stocke40_gcp-playground/moveable-aliases/InitialCommit/paths/functions/CME_quote_ES \
   --region=us-central1 \
@@ -37,4 +37,8 @@ $ gcloud functions deploy CME_quote_ES \
   --runtime python37 \
   --entry-point CME_quote_ES \
   --allow-unauthenticated
-'''
+```
+
+After successful deploy, the changed google cloud function can be accessed at
+
+https://us-central1-greg-play-gcp-project.cloudfunctions.net/CME_quote_ES
