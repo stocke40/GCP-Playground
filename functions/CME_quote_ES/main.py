@@ -40,10 +40,10 @@ def CME_quote_ES(request):
     # Perhaps we could change this to consume entire table and choose the
     # table entry with the highest volume.  Need more thought here.
     bs_cEsPriorSettle = csoup.find(id="quotesFuturesProductTable1_ESH1_priorSettle")
-    print('bs_cEsPriorSettle: ')
-    print(bs_cEsPriorSettle)
-    cEsPriorSettle = list(bs_cEsPriorSettle)[0]
-    priorSettleText = cEsPriorSettle.text
+    #print('bs_cEsPriorSettle: ')
+    #print(bs_cEsPriorSettle)
+    #cEsPriorSettle = list(bs_cEsPriorSettle)[0]
+    priorSettleText = bs_cEsPriorSettle.text
     print('priorSettleText: ')
     print(priorSettleText)
 
