@@ -32,14 +32,14 @@ def CME_quote_ES(request):
 
     cr = requests.get(CME_ES_url,timeout=2.5)
     cr_html = cr.text
-    print("HTML: {}".format(cr.text))
+    # print("HTML: {}".format(cr.text)) - definietely getting HTML
     #logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
     csoup = BeautifulSoup(cr_html, 'html.parser')
 
     # Assuming top table entry is the current futures contract.  
     # Perhaps we could change this to consume entire table and choose the
     # table entry with the highest volume.  Need more thought here.
-    cEsPriorSettle = csoup.find_all(id="QuotesFuturesProductTable1_ESH1_priorSettle")
+    cEsPriorSettle = csoup.find_all(id="quotesFuturesProductTable1_ESH1_priorSettle")
 
     return 'CME ES Prior Settle {}!'.format(escape(cEsPriorSettle))
 
