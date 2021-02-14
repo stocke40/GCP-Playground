@@ -32,7 +32,7 @@ def CME_quote_ES(request):
 
     cr = requests.get(CME_ES_url,timeout=2.5)
     cr_html = cr.text
-    print(cr.text)
+    print("HTML: {}".format(cr.text))
     #logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
     csoup = BeautifulSoup(cr_html, 'html.parser')
 
