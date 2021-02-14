@@ -1,7 +1,7 @@
 from flask import escape
 import requests
 from bs4 import BeautifulSoup
-import logging
+from google.cloud import logging
 
 # GoogleCloudFunctions seems to expect that the cloud functions must exist in a source module named main.py
 # imports must be declared in requirements.txt in the same directory as these are pip installed when the 
@@ -33,7 +33,7 @@ def CME_quote_ES(request):
     cr = requests.get(CME_ES_url,timeout=2.5)
     cr_html = cr.text
     print(cr.text)
-    logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
+    #logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
     csoup = BeautifulSoup(cr_html, 'html.parser')
 
     # Assuming top table entry is the current futures contract.  
