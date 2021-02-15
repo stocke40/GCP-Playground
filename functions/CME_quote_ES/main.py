@@ -35,6 +35,7 @@ def CME_quote_ES(request):
     # print("HTML: {}".format(cr.text)) - definietely getting HTML
     #logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
     soup = BeautifulSoup(page.content, 'html.parser')
+    print(soup.prettify())
 
     # need div first?
     # See https://www.dataquest.io/blog/web-scraping-tutorial-python/
@@ -42,8 +43,8 @@ def CME_quote_ES(request):
     # Assuming top table entry is the current futures contract.  
     # Perhaps we could change this to consume entire table and choose the
     # table entry with the highest volume.  Need more thought here.
-    prior_settle = soup.find(id="quotesFuturesProductTable1_ESH1_priorSettle").get_text()
-    print(prior_settle)
+    #prior_settle = soup.find(id="quotesFuturesProductTable1_ESH1_priorSettle").get_text()
+    #print(prior_settle)
     #print('bs_cEsPriorSettle: ')
     #print(bs_cEsPriorSettle)
     #cEsPriorSettle = list(bs_cEsPriorSettle)[0]
@@ -51,6 +52,6 @@ def CME_quote_ES(request):
     #print('priorSettleText: ')
     #print(priorSettleText)
 
-    return 'CME ES Prior Settle: {}!'.format(escape(prior_settle))
+    return 'CME ES Prior Settle: {}!'.format(escape(name))
 
 # Another comment outside function    
