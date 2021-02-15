@@ -30,23 +30,27 @@ def CME_quote_ES(request):
 
     CME_ES_url = 'https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500_quotes_globex.html'
 
-    cr = requests.get(CME_ES_url,timeout=2.5)
-    cr_content = cr.content
+    page = requests.get(CME_ES_url,timeout=2.5)
+    #cr_content = cr.content
     # print("HTML: {}".format(cr.text)) - definietely getting HTML
     #logging.warn(RuntimeError('HTML: '+cr.text+'(logging.warn)'))
-    csoup = BeautifulSoup(cr_content, 'html.parser')
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    # need div first?
+    # See https://www.dataquest.io/blog/web-scraping-tutorial-python/
 
     # Assuming top table entry is the current futures contract.  
     # Perhaps we could change this to consume entire table and choose the
     # table entry with the highest volume.  Need more thought here.
-    bs_cEsPriorSettle = csoup.find(id="quotesFuturesProductTable1_ESH1_priorSettle")
+    prior_settle = soup.find(id="quotesFuturesProductTable1_ESH1_priorSettle").get_text()
+    print(prior_settle)
     #print('bs_cEsPriorSettle: ')
     #print(bs_cEsPriorSettle)
     #cEsPriorSettle = list(bs_cEsPriorSettle)[0]
-    priorSettleText = bs_cEsPriorSettle.text
-    print('priorSettleText: ')
-    print(priorSettleText)
+    #priorSettleText = bs_cEsPriorSettle.text
+    #print('priorSettleText: ')
+    #print(priorSettleText)
 
-    return 'CME ES Prior Settle {}!'.format(escape(priorSettleText))
+    return 'CME ES Prior Settle: {}!'.format(escape(prior_settle))
 
 # Another comment outside function    
